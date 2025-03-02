@@ -6,17 +6,54 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		EF51615B2D740A6F0096EF8F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5161582D740A6F0096EF8F /* HomeView.swift */; };
+		EF51615C2D740A6F0096EF8F /* CookBookApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5161592D740A6F0096EF8F /* CookBookApp.swift */; };
+		EF51615D2D740A6F0096EF8F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF5161552D740A6F0096EF8F /* Preview Assets.xcassets */; };
+		EF51615E2D740A6F0096EF8F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF5161572D740A6F0096EF8F /* Assets.xcassets */; };
+		EF5161602D740ABE0096EF8F /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = EF51615F2D740ABE0096EF8F /* .gitignore */; };
+		EF5161642D740B580096EF8F /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5161632D740B580096EF8F /* Recipe.swift */; };
+		EF5161662D740BDC0096EF8F /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5161652D740BDC0096EF8F /* LoginView.swift */; };
+		EF5161682D740E0B0096EF8F /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF5161672D740E0B0096EF8F /* Colors.xcassets */; };
+		EF51616B2D7410E10096EF8F /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF51616A2D7410E10096EF8F /* LoginViewModel.swift */; };
+		EF51616D2D7411760096EF8F /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF51616C2D7411760096EF8F /* RegisterView.swift */; };
+		EF5161702D7414D90096EF8F /* AuthTextFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF51616F2D7414D90096EF8F /* AuthTextFieldStyle.swift */; };
+		EF5161722D741AAA0096EF8F /* PasswordComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5161712D741AAA0096EF8F /* PasswordComponentView.swift */; };
+		EF5161742D74243B0096EF8F /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5161732D74243B0096EF8F /* RegisterViewModel.swift */; };
+		EF5161762D74282D0096EF8F /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5161752D74282D0096EF8F /* HomeViewModel.swift */; };
+		EF5161782D742A0C0096EF8F /* SessionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5161772D742A0C0096EF8F /* SessionState.swift */; };
+		EF51617B2D742A4D0096EF8F /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF51617A2D742A4D0096EF8F /* SessionManager.swift */; };
+		EF51617D2D74345F0096EF8F /* RecipeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF51617C2D74345F0096EF8F /* RecipeDetailView.swift */; };
+		EF51617F2D7439020096EF8F /* AddRecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF51617E2D7439020096EF8F /* AddRecipeView.swift */; };
+		EF5161812D7439260096EF8F /* AddRecipeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5161802D7439260096EF8F /* AddRecipeViewModel.swift */; };
+		EF5161832D7439540096EF8F /* CapsuleTextFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5161822D7439540096EF8F /* CapsuleTextFieldStyle.swift */; };
+		EF5161852D7439910096EF8F /* PrimaryButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5161842D7439910096EF8F /* PrimaryButtonStyle.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		EF5161442D740A670096EF8F /* CookBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CookBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF5161552D740A6F0096EF8F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		EF5161572D740A6F0096EF8F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EF5161582D740A6F0096EF8F /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		EF5161592D740A6F0096EF8F /* CookBookApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookBookApp.swift; sourceTree = "<group>"; };
+		EF51615F2D740ABE0096EF8F /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		EF5161632D740B580096EF8F /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
+		EF5161652D740BDC0096EF8F /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		EF5161672D740E0B0096EF8F /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		EF51616A2D7410E10096EF8F /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		EF51616C2D7411760096EF8F /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		EF51616F2D7414D90096EF8F /* AuthTextFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTextFieldStyle.swift; sourceTree = "<group>"; };
+		EF5161712D741AAA0096EF8F /* PasswordComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordComponentView.swift; sourceTree = "<group>"; };
+		EF5161732D74243B0096EF8F /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		EF5161752D74282D0096EF8F /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		EF5161772D742A0C0096EF8F /* SessionState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionState.swift; sourceTree = "<group>"; };
+		EF51617A2D742A4D0096EF8F /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
+		EF51617C2D74345F0096EF8F /* RecipeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailView.swift; sourceTree = "<group>"; };
+		EF51617E2D7439020096EF8F /* AddRecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecipeView.swift; sourceTree = "<group>"; };
+		EF5161802D7439260096EF8F /* AddRecipeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecipeViewModel.swift; sourceTree = "<group>"; };
+		EF5161822D7439540096EF8F /* CapsuleTextFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapsuleTextFieldStyle.swift; sourceTree = "<group>"; };
+		EF5161842D7439910096EF8F /* PrimaryButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButtonStyle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		EF5161462D740A670096EF8F /* CookBook */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = CookBook;
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		EF5161412D740A670096EF8F /* Frameworks */ = {
@@ -32,7 +69,8 @@
 		EF51613B2D740A670096EF8F = {
 			isa = PBXGroup;
 			children = (
-				EF5161462D740A670096EF8F /* CookBook */,
+				EF51615F2D740ABE0096EF8F /* .gitignore */,
+				EF51615A2D740A6F0096EF8F /* CookBook */,
 				EF5161452D740A670096EF8F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -43,6 +81,81 @@
 				EF5161442D740A670096EF8F /* CookBook.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		EF5161562D740A6F0096EF8F /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				EF5161552D740A6F0096EF8F /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		EF51615A2D740A6F0096EF8F /* CookBook */ = {
+			isa = PBXGroup;
+			children = (
+				EF5161792D742A230096EF8F /* Manager */,
+				EF5161622D740B3A0096EF8F /* Model */,
+				EF5161692D7410CB0096EF8F /* ViewModel */,
+				EF51616E2D74149A0096EF8F /* Component */,
+				EF5161612D740B330096EF8F /* View */,
+				EF5161592D740A6F0096EF8F /* CookBookApp.swift */,
+				EF5161572D740A6F0096EF8F /* Assets.xcassets */,
+				EF5161672D740E0B0096EF8F /* Colors.xcassets */,
+				EF5161562D740A6F0096EF8F /* Preview Content */,
+			);
+			path = CookBook;
+			sourceTree = "<group>";
+		};
+		EF5161612D740B330096EF8F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EF5161582D740A6F0096EF8F /* HomeView.swift */,
+				EF5161652D740BDC0096EF8F /* LoginView.swift */,
+				EF51616C2D7411760096EF8F /* RegisterView.swift */,
+				EF51617C2D74345F0096EF8F /* RecipeDetailView.swift */,
+				EF51617E2D7439020096EF8F /* AddRecipeView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		EF5161622D740B3A0096EF8F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EF5161632D740B580096EF8F /* Recipe.swift */,
+				EF5161772D742A0C0096EF8F /* SessionState.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		EF5161692D7410CB0096EF8F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				EF51616A2D7410E10096EF8F /* LoginViewModel.swift */,
+				EF5161732D74243B0096EF8F /* RegisterViewModel.swift */,
+				EF5161752D74282D0096EF8F /* HomeViewModel.swift */,
+				EF5161802D7439260096EF8F /* AddRecipeViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		EF51616E2D74149A0096EF8F /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				EF51616F2D7414D90096EF8F /* AuthTextFieldStyle.swift */,
+				EF5161712D741AAA0096EF8F /* PasswordComponentView.swift */,
+				EF5161822D7439540096EF8F /* CapsuleTextFieldStyle.swift */,
+				EF5161842D7439910096EF8F /* PrimaryButtonStyle.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		EF5161792D742A230096EF8F /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				EF51617A2D742A4D0096EF8F /* SessionManager.swift */,
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -59,9 +172,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				EF5161462D740A670096EF8F /* CookBook */,
 			);
 			name = CookBook;
 			packageProductDependencies = (
@@ -109,6 +219,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF51615D2D740A6F0096EF8F /* Preview Assets.xcassets in Resources */,
+				EF5161682D740E0B0096EF8F /* Colors.xcassets in Resources */,
+				EF5161602D740ABE0096EF8F /* .gitignore in Resources */,
+				EF51615E2D740A6F0096EF8F /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,6 +233,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF5161852D7439910096EF8F /* PrimaryButtonStyle.swift in Sources */,
+				EF5161642D740B580096EF8F /* Recipe.swift in Sources */,
+				EF51615B2D740A6F0096EF8F /* HomeView.swift in Sources */,
+				EF51617D2D74345F0096EF8F /* RecipeDetailView.swift in Sources */,
+				EF51617B2D742A4D0096EF8F /* SessionManager.swift in Sources */,
+				EF5161702D7414D90096EF8F /* AuthTextFieldStyle.swift in Sources */,
+				EF5161762D74282D0096EF8F /* HomeViewModel.swift in Sources */,
+				EF51617F2D7439020096EF8F /* AddRecipeView.swift in Sources */,
+				EF5161662D740BDC0096EF8F /* LoginView.swift in Sources */,
+				EF5161782D742A0C0096EF8F /* SessionState.swift in Sources */,
+				EF51616D2D7411760096EF8F /* RegisterView.swift in Sources */,
+				EF51616B2D7410E10096EF8F /* LoginViewModel.swift in Sources */,
+				EF51615C2D740A6F0096EF8F /* CookBookApp.swift in Sources */,
+				EF5161812D7439260096EF8F /* AddRecipeViewModel.swift in Sources */,
+				EF5161832D7439540096EF8F /* CapsuleTextFieldStyle.swift in Sources */,
+				EF5161742D74243B0096EF8F /* RegisterViewModel.swift in Sources */,
+				EF5161722D741AAA0096EF8F /* PasswordComponentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
