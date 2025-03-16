@@ -21,6 +21,14 @@ struct HomeView: View {
         itemWidth * 1.5
     }
     
+    var userName: String {
+        if let user = sessionManager.currentUser {
+            return user.username.capitalized
+        } else {
+            return "No user login"
+        }
+    }
+    
     fileprivate func RecipeRow(recipe: Recipe) -> some View {
         VStack(alignment: .leading) {
             Image(recipe.image)
@@ -62,6 +70,7 @@ struct HomeView: View {
                 
 
             }
+            .navigationTitle(userName)
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
@@ -75,7 +84,10 @@ struct HomeView: View {
             .alert("Are you sure you would like to sign out?", isPresented: $vm.showSignOutAlert) {
                 
                 Button("Sign Out", role: .destructive) {
-                    sessionManager.sessionState = .logout
+                    if vm.signOut() {
+                        sessionManager.sessionState = .logout
+                        sessionManager.currentUser = nil
+                    }
                 }
                 
                 Button("Cancel", role: .cancel) {
@@ -91,5 +103,5 @@ struct HomeView: View {
 
 #Preview {
     HomeView()
-        .environment(SessionManager())
+        .environment(SessionManager(isPreview: true))
 }

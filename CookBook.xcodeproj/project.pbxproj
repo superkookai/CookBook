@@ -28,6 +28,12 @@
 		EF5161812D7439260096EF8F /* AddRecipeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5161802D7439260096EF8F /* AddRecipeViewModel.swift */; };
 		EF5161832D7439540096EF8F /* CapsuleTextFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5161822D7439540096EF8F /* CapsuleTextFieldStyle.swift */; };
 		EF5161852D7439910096EF8F /* PrimaryButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5161842D7439910096EF8F /* PrimaryButtonStyle.swift */; };
+		EFD93FE82D8685AF0013CF13 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EFD93FE72D8685AF0013CF13 /* GoogleService-Info.plist */; };
+		EFD93FEB2D8687280013CF13 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = EFD93FEA2D8687280013CF13 /* FirebaseAuth */; };
+		EFD93FED2D8687280013CF13 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = EFD93FEC2D8687280013CF13 /* FirebaseFirestore */; };
+		EFD93FEF2D8687280013CF13 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = EFD93FEE2D8687280013CF13 /* FirebaseStorage */; };
+		EFD93FF12D8698810013CF13 /* LoadingComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD93FF02D8698810013CF13 /* LoadingComponentView.swift */; };
+		EFD93FF32D86A6220013CF13 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD93FF22D86A6220013CF13 /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +59,9 @@
 		EF5161802D7439260096EF8F /* AddRecipeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecipeViewModel.swift; sourceTree = "<group>"; };
 		EF5161822D7439540096EF8F /* CapsuleTextFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapsuleTextFieldStyle.swift; sourceTree = "<group>"; };
 		EF5161842D7439910096EF8F /* PrimaryButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButtonStyle.swift; sourceTree = "<group>"; };
+		EFD93FE72D8685AF0013CF13 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		EFD93FF02D8698810013CF13 /* LoadingComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingComponentView.swift; sourceTree = "<group>"; };
+		EFD93FF22D86A6220013CF13 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +69,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFD93FEB2D8687280013CF13 /* FirebaseAuth in Frameworks */,
+				EFD93FED2D8687280013CF13 /* FirebaseFirestore in Frameworks */,
+				EFD93FEF2D8687280013CF13 /* FirebaseStorage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,6 +112,7 @@
 				EF51616E2D74149A0096EF8F /* Component */,
 				EF5161612D740B330096EF8F /* View */,
 				EF5161592D740A6F0096EF8F /* CookBookApp.swift */,
+				EFD93FE72D8685AF0013CF13 /* GoogleService-Info.plist */,
 				EF5161572D740A6F0096EF8F /* Assets.xcassets */,
 				EF5161672D740E0B0096EF8F /* Colors.xcassets */,
 				EF5161562D740A6F0096EF8F /* Preview Content */,
@@ -124,6 +137,7 @@
 			children = (
 				EF5161632D740B580096EF8F /* Recipe.swift */,
 				EF5161772D742A0C0096EF8F /* SessionState.swift */,
+				EFD93FF22D86A6220013CF13 /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -146,6 +160,7 @@
 				EF5161712D741AAA0096EF8F /* PasswordComponentView.swift */,
 				EF5161822D7439540096EF8F /* CapsuleTextFieldStyle.swift */,
 				EF5161842D7439910096EF8F /* PrimaryButtonStyle.swift */,
+				EFD93FF02D8698810013CF13 /* LoadingComponentView.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -175,6 +190,9 @@
 			);
 			name = CookBook;
 			packageProductDependencies = (
+				EFD93FEA2D8687280013CF13 /* FirebaseAuth */,
+				EFD93FEC2D8687280013CF13 /* FirebaseFirestore */,
+				EFD93FEE2D8687280013CF13 /* FirebaseStorage */,
 			);
 			productName = CookBook;
 			productReference = EF5161442D740A670096EF8F /* CookBook.app */;
@@ -204,6 +222,9 @@
 			);
 			mainGroup = EF51613B2D740A670096EF8F;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				EFD93FE92D8687280013CF13 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = EF5161452D740A670096EF8F /* Products */;
 			projectDirPath = "";
@@ -221,6 +242,7 @@
 			files = (
 				EF51615D2D740A6F0096EF8F /* Preview Assets.xcassets in Resources */,
 				EF5161682D740E0B0096EF8F /* Colors.xcassets in Resources */,
+				EFD93FE82D8685AF0013CF13 /* GoogleService-Info.plist in Resources */,
 				EF5161602D740ABE0096EF8F /* .gitignore in Resources */,
 				EF51615E2D740A6F0096EF8F /* Assets.xcassets in Resources */,
 			);
@@ -248,8 +270,10 @@
 				EF51615C2D740A6F0096EF8F /* CookBookApp.swift in Sources */,
 				EF5161812D7439260096EF8F /* AddRecipeViewModel.swift in Sources */,
 				EF5161832D7439540096EF8F /* CapsuleTextFieldStyle.swift in Sources */,
+				EFD93FF12D8698810013CF13 /* LoadingComponentView.swift in Sources */,
 				EF5161742D74243B0096EF8F /* RegisterViewModel.swift in Sources */,
 				EF5161722D741AAA0096EF8F /* PasswordComponentView.swift in Sources */,
+				EFD93FF32D86A6220013CF13 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -455,6 +479,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		EFD93FE92D8687280013CF13 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.9.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		EFD93FEA2D8687280013CF13 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EFD93FE92D8687280013CF13 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		EFD93FEC2D8687280013CF13 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EFD93FE92D8687280013CF13 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		EFD93FEE2D8687280013CF13 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EFD93FE92D8687280013CF13 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = EF51613C2D740A670096EF8F /* Project object */;
 }

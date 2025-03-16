@@ -6,8 +6,31 @@
 //
 
 import Foundation
+import FirebaseAuth
+import FirebaseCore
+import FirebaseFirestore
 
 @Observable
 class SessionManager {
     var sessionState: SessionState = .logout
+    var currentUser: User?
+    
+    init(isPreview: Bool = false) {
+        if !isPreview {
+            FirebaseApp.configure()
+            if let userId = Auth.auth().currentUser?.uid {
+                sessionState = .login
+                getCurrentUser(userId: userId)
+            } else {
+                sessionState = .logout
+            }
+            
+        }
+    }
+    
+    private func getCurrentUser(userId: String) {
+        Task {
+            self.currentUser = try await Firestore.firestore().collection("users").document(userId).getDocument(as: User.self)
+        }
+    }
 }
