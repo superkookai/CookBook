@@ -5,10 +5,12 @@
 //
 
 import SwiftUI
+import PhotosUI
 
 struct AddRecipeView: View {
     
     @State var viewModel = AddRecipeViewModel()
+    @StateObject private var imageLoaderViewModel = ImageLoaderViewModel()
     @Environment(\.dismiss) var dismiss
     
     var body: some View {
@@ -17,11 +19,28 @@ struct AddRecipeView: View {
                     .font(.system(size: 26, weight: .bold))
                     .padding(.top, 20)
             ZStack {
-                RoundedRectangle(cornerRadius: 6)
-                    .fill(Color.primaryFormEntry)
-                    .frame(height: 200)
-                Image(systemName: "photo.fill")
+                Group {
+                    RoundedRectangle(cornerRadius: 6)
+                        .fill(Color.primaryFormEntry)
+                        .frame(height: 200)
+                    Image(systemName: "photo.fill")
+                }
+                
+                if let image = viewModel.displayRecipeImage {
+                    image
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(height: 200)
+                        .clipShape(
+                            RoundedRectangle(cornerRadius: 6)
+                        )
+                }
             }
+            .contentShape(.rect(cornerRadius: 6))
+            .onTapGesture {
+                viewModel.showImageOptions.toggle()
+            }
+            
             Text("Receipe Name")
                 .font(.system(size: 15, weight: .semibold))
                 .padding(.top)
@@ -64,6 +83,32 @@ struct AddRecipeView: View {
             Spacer()
         }
         .padding(.horizontal)
+        .photosPicker(isPresented: $viewModel.showLibrary, selection: $imageLoaderViewModel.imageSelection, matching: .images, photoLibrary: .shared())
+        .onChange(of: imageLoaderViewModel.imageToUpload, { _, newValue in
+            if let newValue {
+                viewModel.displayRecipeImage = Image(uiImage: newValue)
+            }
+        })
+        .confirmationDialog("Upload an image to your recipe", isPresented: $viewModel.showImageOptions, titleVisibility: .visible) {
+            
+            Button {
+                viewModel.showLibrary = true
+            } label: {
+                Text("Upload from Library")
+            }
+            
+            Button {
+                viewModel.showCamera = true
+            } label: {
+                Text("Upload from Camera")
+            }
+
+        }
+        .fullScreenCover(isPresented: $viewModel.showCamera) {
+            CameraPicker { uiImage in
+                viewModel.displayRecipeImage = Image(uiImage: uiImage)
+            }
+        }
     }
 }
 

@@ -28,6 +28,8 @@
 		EF5161812D7439260096EF8F /* AddRecipeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5161802D7439260096EF8F /* AddRecipeViewModel.swift */; };
 		EF5161832D7439540096EF8F /* CapsuleTextFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5161822D7439540096EF8F /* CapsuleTextFieldStyle.swift */; };
 		EF5161852D7439910096EF8F /* PrimaryButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5161842D7439910096EF8F /* PrimaryButtonStyle.swift */; };
+		EFA1087B2D884FFB00C38136 /* ImageLoaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA1087A2D884FFB00C38136 /* ImageLoaderViewModel.swift */; };
+		EFA1088D2D8855DA00C38136 /* CameraPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA1088C2D8855DA00C38136 /* CameraPicker.swift */; };
 		EFD93FE82D8685AF0013CF13 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EFD93FE72D8685AF0013CF13 /* GoogleService-Info.plist */; };
 		EFD93FEB2D8687280013CF13 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = EFD93FEA2D8687280013CF13 /* FirebaseAuth */; };
 		EFD93FED2D8687280013CF13 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = EFD93FEC2D8687280013CF13 /* FirebaseFirestore */; };
@@ -59,6 +61,8 @@
 		EF5161802D7439260096EF8F /* AddRecipeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecipeViewModel.swift; sourceTree = "<group>"; };
 		EF5161822D7439540096EF8F /* CapsuleTextFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapsuleTextFieldStyle.swift; sourceTree = "<group>"; };
 		EF5161842D7439910096EF8F /* PrimaryButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButtonStyle.swift; sourceTree = "<group>"; };
+		EFA1087A2D884FFB00C38136 /* ImageLoaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoaderViewModel.swift; sourceTree = "<group>"; };
+		EFA1088C2D8855DA00C38136 /* CameraPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPicker.swift; sourceTree = "<group>"; };
 		EFD93FE72D8685AF0013CF13 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EFD93FF02D8698810013CF13 /* LoadingComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingComponentView.swift; sourceTree = "<group>"; };
 		EFD93FF22D86A6220013CF13 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -106,6 +110,7 @@
 		EF51615A2D740A6F0096EF8F /* CookBook */ = {
 			isa = PBXGroup;
 			children = (
+				EFA1088B2D8855C900C38136 /* Utility */,
 				EF5161792D742A230096EF8F /* Manager */,
 				EF5161622D740B3A0096EF8F /* Model */,
 				EF5161692D7410CB0096EF8F /* ViewModel */,
@@ -149,6 +154,7 @@
 				EF5161732D74243B0096EF8F /* RegisterViewModel.swift */,
 				EF5161752D74282D0096EF8F /* HomeViewModel.swift */,
 				EF5161802D7439260096EF8F /* AddRecipeViewModel.swift */,
+				EFA1087A2D884FFB00C38136 /* ImageLoaderViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -171,6 +177,14 @@
 				EF51617A2D742A4D0096EF8F /* SessionManager.swift */,
 			);
 			path = Manager;
+			sourceTree = "<group>";
+		};
+		EFA1088B2D8855C900C38136 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				EFA1088C2D8855DA00C38136 /* CameraPicker.swift */,
+			);
+			path = Utility;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,8 +276,10 @@
 				EF51617B2D742A4D0096EF8F /* SessionManager.swift in Sources */,
 				EF5161702D7414D90096EF8F /* AuthTextFieldStyle.swift in Sources */,
 				EF5161762D74282D0096EF8F /* HomeViewModel.swift in Sources */,
+				EFA1087B2D884FFB00C38136 /* ImageLoaderViewModel.swift in Sources */,
 				EF51617F2D7439020096EF8F /* AddRecipeView.swift in Sources */,
 				EF5161662D740BDC0096EF8F /* LoginView.swift in Sources */,
+				EFA1088D2D8855DA00C38136 /* CameraPicker.swift in Sources */,
 				EF5161782D742A0C0096EF8F /* SessionState.swift in Sources */,
 				EF51616D2D7411760096EF8F /* RegisterView.swift in Sources */,
 				EF51616B2D7410E10096EF8F /* LoginViewModel.swift in Sources */,
@@ -410,6 +426,8 @@
 				DEVELOPMENT_TEAM = T9MD4URZFH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Cookbook need to access your Camera";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Cookbook need to access your Photo Library";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -439,6 +457,8 @@
 				DEVELOPMENT_TEAM = T9MD4URZFH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Cookbook need to access your Camera";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Cookbook need to access your Photo Library";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
