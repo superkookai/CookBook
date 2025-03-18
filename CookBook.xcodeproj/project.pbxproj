@@ -36,6 +36,7 @@
 		EFD93FEF2D8687280013CF13 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = EFD93FEE2D8687280013CF13 /* FirebaseStorage */; };
 		EFD93FF12D8698810013CF13 /* LoadingComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD93FF02D8698810013CF13 /* LoadingComponentView.swift */; };
 		EFD93FF32D86A6220013CF13 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD93FF22D86A6220013CF13 /* User.swift */; };
+		EFF69AF82D89A368004A8944 /* ProgressComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF69AF72D89A368004A8944 /* ProgressComponentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +67,7 @@
 		EFD93FE72D8685AF0013CF13 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EFD93FF02D8698810013CF13 /* LoadingComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingComponentView.swift; sourceTree = "<group>"; };
 		EFD93FF22D86A6220013CF13 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		EFF69AF72D89A368004A8944 /* ProgressComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressComponentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +169,7 @@
 				EF5161822D7439540096EF8F /* CapsuleTextFieldStyle.swift */,
 				EF5161842D7439910096EF8F /* PrimaryButtonStyle.swift */,
 				EFD93FF02D8698810013CF13 /* LoadingComponentView.swift */,
+				EFF69AF72D89A368004A8944 /* ProgressComponentView.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 				EF51615C2D740A6F0096EF8F /* CookBookApp.swift in Sources */,
 				EF5161812D7439260096EF8F /* AddRecipeViewModel.swift in Sources */,
 				EF5161832D7439540096EF8F /* CapsuleTextFieldStyle.swift in Sources */,
+				EFF69AF82D89A368004A8944 /* ProgressComponentView.swift in Sources */,
 				EFD93FF12D8698810013CF13 /* LoadingComponentView.swift in Sources */,
 				EF5161742D74243B0096EF8F /* RegisterViewModel.swift in Sources */,
 				EF5161722D741AAA0096EF8F /* PasswordComponentView.swift in Sources */,
