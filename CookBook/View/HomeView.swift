@@ -11,8 +11,14 @@ struct HomeView: View {
     @State private var vm = HomeViewModel()
     @Environment(SessionManager.self) var sessionManager
     
-    let spacing: CGFloat = 5
-    let padding: CGFloat = 5
+    let columns = [
+        GridItem(.flexible(), spacing: 10),
+        GridItem(.flexible(), spacing: 10),
+        GridItem(.flexible(), spacing: 10)
+    ]
+    
+    let spacing: CGFloat = 10
+    let padding: CGFloat = 10
     var itemWidth: CGFloat {
         let screenWidth = UIScreen.main.bounds.width
         return (screenWidth - (spacing*2) - (padding*2)) / 3
@@ -31,11 +37,27 @@ struct HomeView: View {
     
     fileprivate func RecipeRow(recipe: Recipe) -> some View {
         VStack(alignment: .leading) {
-            Image(recipe.image)
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .frame(width: itemWidth, height: itemHeight)
-                .clipShape(.rect(cornerRadius: 8))
+            AsyncImage(url: URL(string: recipe.image)) { image in
+                image
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: itemWidth, height: itemHeight)
+                    .clipShape(.rect(cornerRadius: 8))
+            } placeholder: {
+                ZStack {
+                    RoundedRectangle(cornerRadius: 8)
+                        .stroke(lineWidth: 1)
+                        .frame(width: itemWidth, height: itemHeight)
+                    
+                    Image(systemName: "photo")
+                }
+            }
+
+//            Image(recipe.image)
+//                .resizable()
+//                .aspectRatio(contentMode: .fill)
+//                .frame(width: itemWidth, height: itemHeight)
+//                .clipShape(.rect(cornerRadius: 8))
             
             Text(recipe.name)
                 .lineLimit(1)
@@ -47,16 +69,25 @@ struct HomeView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                HStack(spacing: spacing) {
-                    ForEach(0...2, id: \.self) { index in
-                        NavigationLink {
-                            RecipeDetailView(recipe: Recipe.mockReceipes[index])
-                        } label: {
-                            RecipeRow(recipe: Recipe.mockReceipes[index])
+                ScrollView {
+                    LazyVGrid(columns: columns) {
+                        ForEach(vm.recipes) { recipe in
+                            RecipeRow(recipe: recipe)
                         }
                     }
+                    .padding(.horizontal, padding)
                 }
-                .padding(.horizontal, padding)
+                
+//                HStack(spacing: spacing) {
+//                    ForEach(0...2, id: \.self) { index in
+//                        NavigationLink {
+//                            RecipeDetailView(recipe: Recipe.mockReceipes[index])
+//                        } label: {
+//                            RecipeRow(recipe: Recipe.mockReceipes[index])
+//                        }
+//                    }
+//                }
+//                .padding(.horizontal, padding)
                 
                 Spacer()
                 
@@ -94,8 +125,15 @@ struct HomeView: View {
                     
                 }
             }
-            .sheet(isPresented: $vm.showAddRecipeView) {
+            .sheet(isPresented: $vm.showAddRecipeView, onDismiss: {
+                Task {
+                    await vm.fetchRecipes()
+                }
+            }) {
                 AddRecipeView()
+            }
+            .task {
+                await vm.fetchRecipes()
             }
         }
     }
@@ -103,5 +141,5 @@ struct HomeView: View {
 
 #Preview {
     HomeView()
-        .environment(SessionManager(isPreview: true))
+        .environment(SessionManager())
 }

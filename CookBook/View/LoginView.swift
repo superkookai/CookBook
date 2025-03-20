@@ -74,6 +74,6 @@ struct LoginView: View {
 
 #Preview {
     LoginView()
-        .environment(SessionManager(isPreview: true))
+        .environment(SessionManager())
 }
 

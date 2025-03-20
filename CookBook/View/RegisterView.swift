@@ -75,5 +75,5 @@ struct RegisterView: View {
 
 #Preview {
     RegisterView()
-        .environment(SessionManager(isPreview: true))
+        .environment(SessionManager())
 }

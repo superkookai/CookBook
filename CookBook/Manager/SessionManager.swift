@@ -15,16 +15,16 @@ class SessionManager {
     var sessionState: SessionState = .logout
     var currentUser: User?
     
-    init(isPreview: Bool = false) {
-        if !isPreview {
+    init() {
+        if FirebaseApp.allApps == nil {
             FirebaseApp.configure()
-            if let userId = Auth.auth().currentUser?.uid {
-                sessionState = .login
-                getCurrentUser(userId: userId)
-            } else {
-                sessionState = .logout
-            }
-            
+        }
+        
+        if let userId = Auth.auth().currentUser?.uid {
+            sessionState = .login
+            getCurrentUser(userId: userId)
+        } else {
+            sessionState = .logout
         }
     }
     

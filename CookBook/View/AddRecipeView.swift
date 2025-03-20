@@ -75,7 +75,13 @@ struct AddRecipeView: View {
                 Button(action: {
                     //Add Recipe
                     Task {
-                        await viewModel.addRecipe()
+                        if let imageURL = await viewModel.upload() {
+                            viewModel.addRecipe(imageURL: imageURL) { success in
+                                if success {
+                                    dismiss()
+                                }
+                            }
+                        }
                     }
                 }, label: {
                     Text("Add Recipe")

@@ -67,38 +67,38 @@ class AddRecipeViewModel {
         }
     }
     
-    func addRecipe() async -> Bool {
+    func addRecipe(imageURL: URL, handler: @escaping (_ success: Bool) -> Void) {
         guard let userId = Auth.auth().currentUser?.uid else {
             createAlert(title: "Not Sign In", message: "Please sign in to create recipes")
-            return false
+            handler(false)
+            return
         }
         
         guard recipeName.count >= 2, instructions.count >= 5, preparationTime > 0 else {
             createAlert(title: "Invalid inputs", message: "Recipe name must greater than 2 characters. Instructions must greater than 5 characters. And Preparation time must greater than 0")
-            return false
+            handler(false)
+            return
         }
-        
-        guard let imageURL = await upload() else {
-            return false
-        }
-        
+                
         isLoading = true
         let ref = Firestore.firestore().collection("recipes").document()
         let recipe = Recipe(id: ref.documentID, name: recipeName, image: imageURL.absoluteString, instructions: instructions, time: preparationTime, userId: userId)
         do {
             try Firestore.firestore().collection("recipes").document(ref.documentID).setData(from: recipe) { error in
+                self.isLoading = false
                 if let error {
                     self.createAlert(title: "Error Add Recipe", message: "Cannot add recipe, please try again.")
                     print("Error adding recipe: \(error.localizedDescription)")
+                    handler(false)
+                    return
                 }
-                self.isLoading = false
+                handler(true)
             }
-            return true
         } catch {
             isLoading = false
             createAlert(title: "Error Add Recipe", message: "Cannot add recipe, please try again.")
             print("Error adding recipe: \(error.localizedDescription)")
-            return false
+            handler(false)
         }
     }
     
