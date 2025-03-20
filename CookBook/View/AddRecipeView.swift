@@ -45,7 +45,7 @@ struct AddRecipeView: View {
                 Text("Receipe Name")
                     .font(.system(size: 15, weight: .semibold))
                     .padding(.top)
-                TextField("", text: $viewModel.receipeName)
+                TextField("", text: $viewModel.recipeName)
                     .textFieldStyle(CapsuleTextFieldStyle())
                     .autocorrectionDisabled()
                     .textInputAutocapitalization(.never)
@@ -75,8 +75,7 @@ struct AddRecipeView: View {
                 Button(action: {
                     //Add Recipe
                     Task {
-                        await viewModel.upload()
-                        dismiss()
+                        await viewModel.addRecipe()
                     }
                 }, label: {
                     Text("Add Recipe")
@@ -118,6 +117,20 @@ struct AddRecipeView: View {
             if viewModel.isUploading {
                 ProgressComponentView(value: $viewModel.uploadProgress)
             }
+            
+            if viewModel.isLoading {
+                LoadingComponentView()
+            }
+        }
+        .alert(viewModel.alertTitle, isPresented: $viewModel.showAlert) {
+            Button {
+                //just dismiss
+            } label: {
+                Text("OK")
+            }
+
+        } message: {
+            Text(viewModel.alertMessage)
         }
     }
 }

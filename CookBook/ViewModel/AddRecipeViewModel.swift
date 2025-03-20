@@ -8,12 +8,14 @@ import Foundation
 import SwiftUI
 import FirebaseStorage
 import FirebaseAuth
+import FirebaseFirestore
 
 @Observable
 class AddRecipeViewModel {
-    var receipeName = ""
+    var recipeName = ""
     var preparationTime = 0
     var instructions = ""
+    
     var showImageOptions = false
     var showLibrary = false
     var displayRecipeImage: Image?
@@ -21,14 +23,20 @@ class AddRecipeViewModel {
     var showCamera = false
     var uploadProgress: Float = 0
     var isUploading = false
+    var isLoading = false
     
-    func upload() async {
+    var showAlert = false
+    var alertTitle = ""
+    var alertMessage = ""
+    
+    func upload() async -> URL? {
         guard let userId = Auth.auth().currentUser?.uid else {
-            return
+            return nil
         }
         
         guard let recipeImage, let imageData = recipeImage.jpegData(compressionQuality: 0.7) else {
-            return
+            createAlert(title: "Image Upload Fail", message: "Recipe image could not be upload.")
+            return nil
         }
         
         
@@ -49,9 +57,54 @@ class AddRecipeViewModel {
                 }
             }
             isUploading = false
+            let downloadURL = try await storageRef.downloadURL()
+            return downloadURL
         } catch {
+            createAlert(title: "Image Upload Fail", message: "Recipe image could not be upload.")
             isUploading = false
             print("Error uploading image: \(error.localizedDescription)")
+            return nil
         }
+    }
+    
+    func addRecipe() async -> Bool {
+        guard let userId = Auth.auth().currentUser?.uid else {
+            createAlert(title: "Not Sign In", message: "Please sign in to create recipes")
+            return false
+        }
+        
+        guard recipeName.count >= 2, instructions.count >= 5, preparationTime > 0 else {
+            createAlert(title: "Invalid inputs", message: "Recipe name must greater than 2 characters. Instructions must greater than 5 characters. And Preparation time must greater than 0")
+            return false
+        }
+        
+        guard let imageURL = await upload() else {
+            return false
+        }
+        
+        isLoading = true
+        let ref = Firestore.firestore().collection("recipes").document()
+        let recipe = Recipe(id: ref.documentID, name: recipeName, image: imageURL.absoluteString, instructions: instructions, time: preparationTime, userId: userId)
+        do {
+            try Firestore.firestore().collection("recipes").document(ref.documentID).setData(from: recipe) { error in
+                if let error {
+                    self.createAlert(title: "Error Add Recipe", message: "Cannot add recipe, please try again.")
+                    print("Error adding recipe: \(error.localizedDescription)")
+                }
+                self.isLoading = false
+            }
+            return true
+        } catch {
+            isLoading = false
+            createAlert(title: "Error Add Recipe", message: "Cannot add recipe, please try again.")
+            print("Error adding recipe: \(error.localizedDescription)")
+            return false
+        }
+    }
+    
+    private func createAlert(title: String, message: String) {
+        self.alertTitle = title
+        self.alertMessage = message
+        self.showAlert = true
     }
 }
