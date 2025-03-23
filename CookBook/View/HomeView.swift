@@ -72,7 +72,11 @@ struct HomeView: View {
                 ScrollView {
                     LazyVGrid(columns: columns) {
                         ForEach(vm.recipes) { recipe in
-                            RecipeRow(recipe: recipe)
+                            NavigationLink {
+                                RecipeDetailView(recipe: recipe)
+                            } label: {
+                                RecipeRow(recipe: recipe)
+                            }
                         }
                     }
                     .padding(.horizontal, padding)

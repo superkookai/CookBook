@@ -12,11 +12,31 @@ struct RecipeDetailView: View {
     
     var body: some View {
         VStack {
-            Image(recipe.image)
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .frame(height: 250)
-                .clipped()
+            if ProcessInfo.processInfo.environment["XCODE_RUNNING_FOR_PREVIEWS"] == "1" {
+                
+                Image(recipe.image)
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(height: 250)
+                    .clipped()
+                
+            } else {
+                AsyncImage(url: URL(string: recipe.image)) { image in
+                    image
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(height: 250)
+                        .clipped()
+                } placeholder: {
+                    ZStack {
+                        Rectangle()
+                            .stroke(lineWidth: 1)
+                            .frame(height: 250)
+                        
+                        Image(systemName: "photo")
+                    }
+                }
+            }
             
             HStack {
                 Text(recipe.name)
